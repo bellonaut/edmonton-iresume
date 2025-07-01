@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edmonton iResume - Professional Resume Optimization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a3a6c; /* Edmonton blue */
+            --secondary: #e63946; /* Accent red */
+            --accent: #ffd166; /* Golden yellow */
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 30px;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.9)), 
+                        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0 100px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 50px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, #c1121f 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(198, 18, 31, 0.4);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(198, 18, 31, 0.5);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 50px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.4rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 15px auto 0;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .feature-card i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            background: rgba(26, 58, 108, 0.1);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Upload Section */
+        .upload-section {
+            padding: 70px 0;
+            background: white;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            margin: 0 20px 70px;
+        }
+        
+        .upload-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .upload-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .upload-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .upload-box {
+            border: 2px dashed #ced4da;
+            border-radius: 15px;
+            padding: 50px 20px;
+            text-align: center;
+            background: #f8f9fa;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .upload-box.active {
+            border-color: var(--primary);
+            background: rgba(26, 58, 108, 0.03);
+        }
+        
+        .upload-box i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .upload-box h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .upload-box p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(26, 58, 108, 0.3);
+        }
+        
+        .file-label:hover {
+            background: #142a4d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 58, 108, 0.4);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 58, 108, 0.15);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid #e9ecef;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--secondary);
+            transform: scale(1.03);
+            z-index: 1;
+        }
+        
+        .pricing-card.popular .pricing-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #c1121f 100%);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 35px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            text-align: center;
+            padding: 35px 25px;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 1.1rem;
+            font-weight: normal;
+        }
+        
+        .pricing-body {
+            padding: 35px 30px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+        
+        .pricing-features li i {
+            color: var(--success);
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 0 50px;
+            background: white;
+            border-radius: 30px;
+            margin: 0 20px 70px;
+            box-shadow: var(--shadow);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step:nth-child(2) .step-number {
+            background: var(--secondary);
+        }
+        
+        .step:nth-child(3) .step-number {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .step h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Dashboard Demo */
+        .dashboard {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .dashboard-image {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dashboard-image::before {
+            content: "ADMIN DASHBOARD PREVIEW";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            font-weight: 600;
+        }
+        
+        .dashboard-placeholder {
+            background: linear-gradient(45deg, #f0f4f9 25%, #e4ebf5 25%, #e4ebf5 50%, #f0f4f9 50%, #f0f4f9 75%, #e4ebf5 75%, #e4ebf5 100%);
+            background-size: 40px 40px;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        /* Footer Section */
+        footer {
+            background: linear-gradient(135deg, #0d1b2f 0%, var(--primary) 100%);
+            color: white;
+            padding: 70px 0 30px;
+            border-radius: 30px 30px 0 0;
+            margin: 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-section p {
+            margin-bottom: 20px;
+            color: #adb5bd;
+            line-height: 1.7;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info li i {
+            margin-right: 15px;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero {
+                padding: 60px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .upload-box {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <h1>Edmonton <span>iResume</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#upload">Free Audit</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Professional Resume Optimization Service</h2>
+                <p>With a decade of experience in HR, programming and resume drafting, I'll transform your resume to maximize job opportunities in the Edmonton market.</p>
+                <button class="cta-button" onclick="document.getElementById('upload').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-cloud-upload-alt"></i> Get Free Resume Audit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specialized Services</h2>
+                <p>Tailored resume solutions for the Edmonton job market</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-edit"></i>
+                    <h3>Format Optimization</h3>
+                    <p>Transform your resume layout with professional formatting that passes ATS systems and catches hiring managers' attention.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Content Enhancement</h3>
+                    <p>Elevate your content with powerful action verbs, achievement-oriented language, and industry-specific terminology.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Industry Targeting</h3>
+                    <p>Customized optimization for Edmonton's key industries including tech, healthcare, oil & gas, and government sectors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section" id="upload">
+        <div class="container">
+            <div class="upload-container">
+                <div class="upload-header">
+                    <h3>Get Your Free Resume Audit</h3>
+                    <p>Upload your resume and we'll provide detailed optimization recommendations</p>
+                </div>
+                <div class="upload-box" id="upload-box">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h4>Upload Your Resume</h4>
+                    <p>Supported formats: PDF, DOC, DOCX (Max file size: 5MB)</p>
+                    <input type="file" id="resume-file" class="file-input" accept=".pdf,.doc,.docx">
+                    <label for="resume-file" class="file-label">Choose File</label>
+                </div>
+                <form id="audit-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Target Industry/Role</label>
+                        <select id="industry" required>
+                            <option value="">Select your industry</option>
+                            <option value="tech">Technology/IT</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="finance">Finance/Banking</option>
+                            <option value="education">Education</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="trades">Skilled Trades</option>
+                            <option value="government">Government</option>
+                            <option value="oilgas">Oil & Gas</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Special Requests or Notes</label>
+                        <textarea id="notes" rows="4" placeholder="Any specific requirements, target positions, or concerns about your current resume?"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Submit for Free Audit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Simple steps to transform your resume</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Upload & Analyze</h4>
+                    <p>Submit your resume for a comprehensive audit and analysis</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Receive Recommendations</h4>
+                    <p>Get detailed feedback and optimization suggestions</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Choose Service</h4>
+                    <p>Select the optimization package that meets your needs</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Get Job-Ready</h4>
+                    <p>Receive your professionally optimized resume</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Optimization Packages</h2>
+                <p>Choose the service that fits your career goals</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">$20</div>
+                        <p>Format Optimization</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i> Professional formatting</li>
+                            <li><i class="fas fa-check-circle"></i> ATS compliance check</li>
+                            <li><i class="fas fa-check-circle"></i> Font & layout optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Section organization</li>
+                            <li><i class="fas fa-check-circle"></i> 24-hour turnaround</li>
+                        </ul>
+                        <button class="cta-button">Select Plan</button>
+                    </div>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-tag">POPULAR</div>
+                    <div class="pricing-header">
+                        <h3>Standard</h3>
+                        <div class="price">$35</div>
+                        <p>Content & Format Optimization</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i> Everything in Basic</li>
+                            <li><i class="fas fa-check-circle"></i> Content refinement</li>
+                            <li><i class="fas fa-check-circle"></i> Action verb enhancement</li>
+                            <li><i class="fas fa-check-circle"></i> Achievement highlighting</li>
+                            <li><i class="fas fa-check-circle"></i> Tailored for your industry</li>
+                            <li><i class="fas fa-check-circle"></i> 48-hour turnaround</li>
+                        </ul>
+                        <button class="cta-button">Select Plan</button>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">$100</div>
+                        <p>Full Package Optimization</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i> Everything in Standard</li>
+                            <li><i class="fas fa-check-circle"></i> Algorithm optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Strategic keyword placement</li>
+                            <li><i class="fas fa-check-circle"></i> Industry-specific optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Cover letter included</li>
+                            <li><i class="fas fa-check-circle"></i> LinkedIn profile review</li>
+                            <li><i class="fas fa-check-circle"></i> 72-hour turnaround</li>
+                        </ul>
+                        <button class="cta-button">Select Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admin Dashboard</h2>
+                <p>How resumes are managed after submission</p>
+            </div>
+            <div class="dashboard-image">
+                <div class="dashboard-placeholder">
+                    <div>
+                        <i class="fas fa-lock fa-3x"></i>
+                        <p>Secure Admin Dashboard</p>
+                        <p>(Resumes stored in Google Drive)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Edmonton iResume</h3>
+                    <p>With over 10 years of experience in HR, programming, and resume drafting, we specialize in optimizing resumes for the Edmonton job market.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>info@edmontoniresume.ca</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>(780) 123-4567</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Edmonton, Alberta</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Business Hours</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>Monday-Friday: 9AM - 6PM</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>Saturday: 10AM - 4PM</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>Sunday: Closed</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Edmonton iResume. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('audit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const fileInput = document.getElementById('resume-file');
+            
+            // Simple validation
+            if (!name || !email || !fileInput.files.length) {
+                alert('Please fill in all required fields and select a resume file.');
+                return;
+            }
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.innerHTML = `
+                <div style="background: #28a745; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-top: 20px;">
+                    <i class="fas fa-check-circle fa-2x"></i>
+                    <h3 style="margin: 15px 0;">Thank You ${name}!</h3>
+                    <p>Your resume has been submitted for audit. We'll email the results to ${email} within 24 hours.</p>
+                </div>
+            `;
+            
+            this.parentNode.insertBefore(successMessage, this.nextSibling);
+            
+            // Reset form
+            this.reset();
+            fileInput.value = '';
+            document.querySelector('.file-label').textContent = 'Choose File';
+            document.querySelector('.file-label').style.background = '';
+            document.getElementById('upload-box').classList.remove('active');
+        });
+        
+        // File upload label update
+        document.getElementById('resume-file').addEventListener('change', function() {
+            const label = document.querySelector('.file-label');
+            const uploadBox = document.getElementById('upload-box');
+            
+            if (this.files.length) {
+                label.textContent = this.files[0].name;
+                label.style.background = '#28a745';
+                uploadBox.classList.add('active');
+            } else {
+                label.textContent = 'Choose File';
+                label.style.background = '';
+                uploadBox.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
