@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edmonton iResume – Professional Resume Optimization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edmonton iResume | Professional Resume Optimization Service</title>
+  <meta name="description" content="Get your resume professionally optimized for Edmonton's job market. ATS formatting, keyword optimization, and industry-specific enhancements.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
   <style>
     :root {
       --primary: #1a3a6c;
@@ -13,234 +18,849 @@
       --light: #f8f9fa;
       --dark: #212529;
       --gray: #6c757d;
+      --dark-blue: #0d1b2f;
+      --success: #28a745;
       --shadow: 0 5px 15px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
     }
+    
     *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
     }
+    
     body {
-      background: linear-gradient(135deg,#f5f7fa 0%,#e4edf9 100%);
-      color: var(--dark); line-height:1.6; min-height:100vh;
-      padding-bottom:20px;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+      color: var(--dark); 
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 20px;
+      overflow-x: hidden;
     }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
     .container {
-      width:100%; max-width:1200px; margin:0 auto; padding:0 20px;
+      width: 100%; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 20px;
     }
+    
+    /* Header */
     header {
-      background: linear-gradient(135deg,var(--primary) 0%,#2c5282 100%);
-      color:#fff; padding:15px 0; box-shadow:var(--shadow);
-      position:sticky; top:0; z-index:100;
+      background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+      color: white; 
+      padding: 15px 0; 
+      box-shadow: var(--shadow);
+      position: sticky; 
+      top: 0; 
+      z-index: 100;
+      transition: var(--transition);
     }
+    
+    .header-scrolled {
+      padding: 10px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    
     .header-content {
-      display:flex; justify-content:space-between; align-items:center;
-      flex-wrap:wrap;
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      flex-wrap: wrap;
     }
-    .logo { display:flex; align-items:center; gap:15px; }
-    .logo i { font-size:2.5rem; color:var(--accent); }
-    .logo h1 { font-size:1.8rem; font-weight:700; }
-    .logo span { color:var(--accent); }
+    
+    .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 15px; 
+    }
+    
+    .logo i { 
+      font-size: 2.5rem; 
+      color: var(--accent); 
+      transition: var(--transition);
+    }
+    
+    .logo:hover i {
+      transform: rotate(10deg);
+    }
+    
+    .logo h1 { 
+      font-size: 1.8rem; 
+      font-weight: 700; 
+      letter-spacing: -0.5px;
+    }
+    
+    .logo span { 
+      color: var(--accent); 
+      position: relative;
+    }
+    
+    .logo span::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    
+    .logo:hover span::after {
+      transform: scaleX(1);
+    }
+    
     nav ul {
-      display:flex; list-style:none; gap:25px;
+      display: flex; 
+      list-style: none; 
+      gap: 25px;
     }
+    
     nav a {
-      color:#fff; text-decoration:none; font-weight:500;
-      padding:8px 15px; border-radius:30px;
-      transition:background .3s;
+      color: white; 
+      text-decoration: none; 
+      font-weight: 500;
+      padding: 8px 15px; 
+      border-radius: 30px;
+      transition: var(--transition);
+      position: relative;
     }
-    nav a:hover { background:rgba(255,255,255,0.15); }
-
-    /* Hero */
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: translateX(-50%);
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a:hover::after {
+      width: 80%;
+    }
+    
+    /* Hero Section */
     .hero {
-      background:
-        linear-gradient(rgba(26,58,108,.85),rgba(26,58,108,.9)),
-        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80')
-        center/cover no-repeat;
-      color:#fff; text-align:center; padding:80px 0 100px;
-      border-radius:0 0 30px 30px; margin-bottom:50px;
+      background: 
+        linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.9)), 
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      color: white; 
+      text-align: center; 
+      padding: 100px 0;
+      border-radius: 0 0 30px 30px; 
+      margin-bottom: 50px;
+      position: relative;
+      overflow: hidden;
     }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a3a6c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.1;
+    }
+    
+    .hero-content {
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    
     .hero h2 {
-      font-size:2.8rem; margin-bottom:20px;
-      text-shadow:1px 1px 3px rgba(0,0,0,.3);
+      font-size: 2.8rem; 
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      line-height: 1.2;
     }
+    
     .hero p {
-      font-size:1.25rem; margin-bottom:30px; max-width:700px;
-      margin-left:auto; margin-right:auto; opacity:.9;
+      font-size: 1.25rem; 
+      margin-bottom: 30px; 
+      max-width: 700px;
+      margin-left: auto; 
+      margin-right: auto; 
+      opacity: 0.9;
     }
+    
     .cta-button {
-      display:inline-block;
-      background:linear-gradient(135deg,var(--secondary) 0%,#c1121f 100%);
-      color:#fff; padding:16px 40px; border:none; border-radius:50px;
-      font-weight:600; font-size:1.1rem; cursor:pointer;
-      text-decoration:none; transition:transform .3s,box-shadow .3s;
-      box-shadow:0 4px 20px rgba(198,18,31,.4);
+      display: inline-block;
+      background: linear-gradient(135deg, var(--secondary) 0%, #c1121f 100%);
+      color: white; 
+      padding: 16px 40px; 
+      border-radius: 50px;
+      text-decoration: none; 
+      font-weight: 600; 
+      font-size: 1.1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(198, 18, 31, 0.4);
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #c1121f 0%, var(--secondary) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
     .cta-button:hover {
-      transform:translateY(-3px);
-      box-shadow:0 6px 25px rgba(198,18,31,.5);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(198, 18, 31, 0.5);
     }
-
-    /* Features */
-    .features { padding:50px 0 80px; }
-    .section-title { text-align:center; margin-bottom:60px; }
+    
+    .cta-button:hover::before {
+      opacity: 1;
+    }
+    
+    .cta-button i {
+      margin-right: 8px;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    
+    .stat-box {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      min-width: 180px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--accent);
+    }
+    
+    .stat-text {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    /* Services */
+    .services { 
+      padding: 80px 0; 
+    }
+    
+    .section-title { 
+      text-align: center; 
+      margin-bottom: 60px; 
+    }
+    
     .section-title h2 {
-      font-size:2.4rem; color:var(--primary);
-      display:inline-block; padding-bottom:15px; position:relative;
+      font-size: 2.4rem; 
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
     }
+    
     .section-title h2::after {
-      content:''; position:absolute; bottom:0; left:50%;
-      transform:translateX(-50%); width:100px; height:4px;
-      background:var(--secondary); border-radius:2px;
+      content: ''; 
+      position: absolute; 
+      bottom: 0; 
+      left: 50%;
+      transform: translateX(-50%); 
+      width: 100px; 
+      height: 4px;
+      background: var(--secondary); 
+      border-radius: 2px;
     }
+    
     .section-title p {
-      max-width:700px; margin:15px auto 0; font-size:1.1rem;
-      color:var(--gray);
+      max-width: 700px; 
+      margin: 15px auto 0; 
+      font-size: 1.1rem;
+      color: var(--gray);
     }
-    .features-grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
+    
+    .services-grid {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
-    .feature-card {
-      background:#fff; border-radius:15px; padding:35px 30px;
-      text-align:center; box-shadow:var(--shadow);
-      border-top:4px solid var(--primary);
-      transition:transform .3s,box-shadow .3s;
+    
+    .service-card {
+      background: white; 
+      border-radius: 15px; 
+      padding: 35px 30px;
+      text-align: center; 
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border-top: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
-    .feature-card:hover {
-      transform:translateY(-10px);
-      box-shadow:0 15px 30px rgba(0,0,0,.12);
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
     }
-    .feature-card i {
-      font-size:3.5rem; color:var(--primary);
-      margin-bottom:25px;
-      background:rgba(26,58,108,.1);
-      width:90px; height:90px; line-height:90px;
-      border-radius:50%;
+    
+    .service-icon {
+      font-size: 3.5rem; 
+      color: var(--primary);
+      margin-bottom: 25px;
+      background: rgba(26, 58, 108, 0.1);
+      width: 90px; 
+      height: 90px; 
+      line-height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      transition: var(--transition);
     }
-    .feature-card h3 { font-size:1.5rem; margin-bottom:15px; color:var(--primary); }
-
+    
+    .service-card:hover .service-icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .service-card h3 { 
+      font-size: 1.5rem; 
+      margin-bottom: 15px; 
+      color: var(--primary); 
+    }
+    
+    .service-card p {
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .service-card .cta-button {
+      margin-top: auto;
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+    
     /* How It Works */
     .process {
-      padding:80px 0 50px; background:#fff;
-      border-radius:30px; margin:0 20px 70px;
-      box-shadow:var(--shadow);
+      padding: 80px 0; 
+      background: white;
+      border-radius: 30px; 
+      margin: 0 0 70px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
+    
+    .process::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a3a6c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.05;
+    }
+    
     .steps {
-      display:flex; justify-content:center; flex-wrap:wrap;
-      gap:40px; max-width:1200px; margin:50px auto 0;
+      display: flex; 
+      justify-content: center; 
+      flex-wrap: wrap;
+      gap: 40px; 
+      max-width: 1200px; 
+      margin: 50px auto 0;
+      position: relative;
+      z-index: 2;
     }
-    .step { text-align:center; flex:1; min-width:200px;	max-width:300px; }
+    
+    .step { 
+      text-align: center; 
+      flex: 1; 
+      min-width: 200px;
+      max-width: 300px; 
+      position: relative;
+    }
+    
+    .step::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: -30px;
+      width: 60px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 5px;
+      opacity: 0.7;
+    }
+    
+    .step:last-child::before {
+      display: none;
+    }
+    
+    @media (max-width: 900px) {
+      .step::before {
+        display: none;
+      }
+    }
+    
     .step-number {
-      width:60px; height:60px; background:var(--primary);
-      color:#fff; border-radius:50%; display:flex;
-      align-items:center; justify-content:center;
-      font-size:1.8rem; font-weight:700; margin:0 auto 25px;
+      width: 60px; 
+      height: 60px; 
+      background: var(--primary);
+      color: white; 
+      border-radius: 50%; 
+      display: flex;
+      align-items: center; 
+      justify-content: center;
+      font-size: 1.8rem; 
+      font-weight: 700; 
+      margin: 0 auto 25px;
+      transition: var(--transition);
     }
-    .step:nth-child(2) .step-number { background:var(--secondary); }
+    
+    .step:hover .step-number {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .step:nth-child(2) .step-number { 
+      background: var(--secondary); 
+    }
+    
     .step:nth-child(3) .step-number {
-      background:var(--accent); color:var(--dark);
+      background: var(--accent); 
+      color: var(--dark);
     }
-    .step h4 { font-size:1.4rem; margin-bottom:15px; color:var(--primary); }
-
+    
+    .step h4 { 
+      font-size: 1.4rem; 
+      margin-bottom: 15px; 
+      color: var(--primary); 
+    }
+    
     /* Pricing */
-    .pricing { padding:80px 0; }
+    .pricing { 
+      padding: 80px 0; 
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+      border-radius: 30px;
+      margin-bottom: 70px;
+    }
+    
     .pricing-grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:35px; max-width:1200px; margin:0 auto;
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px; 
+      max-width: 1200px; 
+      margin: 0 auto;
     }
+    
     .pricing-card {
-      background:#fff; border-radius:20px; overflow:hidden;
-      box-shadow:var(--shadow); transition:transform .3s,box-shadow .3s;
-      border:2px solid #e9ecef; position:relative;
+      background: white; 
+      border-radius: 20px; 
+      overflow: hidden;
+      box-shadow: var(--shadow); 
+      transition: var(--transition);
+      border: 2px solid #e9ecef;
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
+    
     .pricing-card:hover {
-      transform:translateY(-10px);
-      box-shadow:0 15px 40px rgba(0,0,0,.15);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     }
+    
     .pricing-card.popular {
-      border-color:var(--secondary); transform:scale(1.03); z-index:1;
+      border-color: var(--secondary); 
+      transform: scale(1.03); 
+      z-index: 1;
     }
+    
     .popular-tag {
-      position:absolute; top:20px; right:-30px; transform:rotate(45deg);
-      background:var(--accent); color:var(--dark);
-      padding:8px 35px; font-weight:700; font-size:.95rem;
-      box-shadow:0 2px 10px rgba(0,0,0,.1);
+      position: absolute; 
+      top: 20px; 
+      right: -30px; 
+      transform: rotate(45deg);
+      background: var(--accent); 
+      color: var(--dark);
+      padding: 8px 35px; 
+      font-weight: 700; 
+      font-size: .95rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
     }
+    
     .pricing-header {
-      background:linear-gradient(135deg,var(--primary) 0%,#2c5282 100%);
-      color:#fff; text-align:center; padding:35px 25px;
+      background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+      color: white; 
+      text-align: center; 
+      padding: 35px 25px;
     }
-    .pricing-header h3 { font-size:1.7rem; margin-bottom:10px; }
+    
+    .pricing-header h3 { 
+      font-size: 1.7rem; 
+      margin-bottom: 10px; 
+    }
+    
     .price {
-      font-size:3rem; font-weight:700; margin:20px 0;
+      font-size: 3rem; 
+      font-weight: 700; 
+      margin: 20px 0;
     }
-    .price span { font-size:1.1rem; font-weight:normal; }
-    .pricing-body { padding:35px 30px; }
+    
+    .price span { 
+      font-size: 1.1rem; 
+      font-weight: normal; 
+    }
+    
+    .pricing-body { 
+      padding: 35px 30px; 
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
     .pricing-features {
-      list-style:none; margin-bottom:30px;
+      list-style: none; 
+      margin-bottom: 30px;
+      flex-grow: 1;
     }
+    
     .pricing-features li {
-      display:flex; align-items:center; padding:12px 0;
-      border-bottom:1px solid #f1f1f1; font-size:1.05rem;
+      display: flex; 
+      align-items: center; 
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f1f1; 
+      font-size: 1.05rem;
     }
+    
     .pricing-features li i {
-      color:var(--success); margin-right:12px; font-size:1.2rem;
+      color: var(--success); 
+      margin-right: 12px; 
+      font-size: 1.2rem;
     }
-
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 80px 0;
+      background: white;
+      border-radius: 30px;
+      margin-bottom: 70px;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .testimonial-card {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(26, 58, 108, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      margin-top: 30px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    
+    .author-info h4 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    
+    /* FAQ */
+    .faq {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+      border-radius: 30px;
+      margin-bottom: 70px;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer.active {
+      padding: 20px;
+      max-height: 500px;
+    }
+    
     /* Footer */
     footer {
-      background:linear-gradient(135deg,#0d1b2f 0%,var(--primary) 100%);
-      color:#fff; padding:70px 0 30px; border-radius:30px 30px 0 0;
-      margin:0 20px;
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary) 100%);
+      color: white; 
+      padding: 70px 0 30px; 
+      border-radius: 30px 30px 0 0;
     }
+    
     .footer-content {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:40px; margin-bottom:40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px; 
+      margin-bottom: 40px;
     }
+    
     .footer-section h3 {
-      font-size:1.5rem; margin-bottom:25px; position:relative;
-      padding-bottom:15px;
+      font-size: 1.5rem; 
+      margin-bottom: 25px; 
+      position: relative;
+      padding-bottom: 15px;
     }
+    
     .footer-section h3::after {
-      content:''; position:absolute; bottom:0; left:0;
-      width:60px; height:3px; background:var(--accent);
+      content: ''; 
+      position: absolute; 
+      bottom: 0; 
+      left: 0;
+      width: 60px; 
+      height: 3px; 
+      background: var(--accent);
     }
-    .contact-info { list-style:none; }
+    
+    .contact-info { 
+      list-style: none; 
+    }
+    
     .contact-info li {
-      display:flex; align-items:flex-start; margin-bottom:15px;
+      display: flex; 
+      align-items: flex-start; 
+      margin-bottom: 15px;
     }
+    
     .contact-info li i {
-      color:var(--accent); font-size:1.2rem; margin-right:15px;
-      margin-top:3px;
+      color: var(--accent); 
+      font-size: 1.2rem; 
+      margin-right: 15px;
+      margin-top: 3px;
     }
+    
     .contact-info li a {
-      color:#fff; text-decoration:underline;
-      transition:color .3s;
+      color: white; 
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
     }
-    .contact-info li a:hover { color:var(--accent); }
+    
+    .contact-info li a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+    
+    .contact-info li a:hover {
+      color: var(--accent);
+    }
+    
+    .contact-info li a:hover::after {
+      width: 100%;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+    
     .copyright {
-      text-align:center; padding-top:30px;
-      border-top:1px solid rgba(255,255,255,0.1);
-      color:#adb5bd; font-size:1rem;
+      text-align: center; 
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #adb5bd; 
+      font-size: 1rem;
     }
-    @media(max-width:900px){
-      .header-content{ flex-direction:column; gap:20px; }
-      nav ul{ flex-wrap:wrap; justify-content:center; }
-      .hero h2{ font-size:2.3rem; }
-      .steps{ flex-direction:column; align-items:center; }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      .header-content { 
+        flex-direction: column; 
+        gap: 20px; 
+      }
+      
+      nav ul { 
+        flex-wrap: wrap; 
+        justify-content: center; 
+      }
+      
+      .hero h2 { 
+        font-size: 2.3rem; 
+      }
+      
+      .steps { 
+        flex-direction: column; 
+        align-items: center; 
+      }
+      
+      .hero {
+        padding: 80px 0;
+      }
     }
-    @media(max-width:600px){
-      .hero{ padding:60px 0 80px; }
-      .hero h2{ font-size:2rem; }
-      .section-title h2{ font-size:2rem; }
+    
+    @media (max-width: 600px) {
+      .hero { 
+        padding: 60px 0 80px; 
+      }
+      
+      .hero h2 { 
+        font-size: 2rem; 
+      }
+      
+      .section-title h2 { 
+        font-size: 2rem; 
+      }
+      
+      .stats {
+        gap: 20px;
+      }
+      
+      .stat-box {
+        min-width: 140px;
+        padding: 15px;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      nav ul {
+        gap: 10px;
+      }
+      
+      nav a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .logo h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header>
+  <header id="header">
     <div class="container">
       <div class="header-content">
         <div class="logo">
@@ -251,7 +871,9 @@
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
             <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Results</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -263,44 +885,68 @@
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
-        <h2>Optimize Your Resume for Edmonton’s Market</h2>
-        <p>Over a decade refining resumes, HR processes, and programming-driven ATS tricks—tailored to get you noticed.</p>
+        <h2>Optimize Your Resume for Edmonton's Market</h2>
+        <p>Over a decade refining resumes, HR processes, and programming-driven ATS tricks—tailored to get you noticed in Edmonton's competitive job market.</p>
         <a href="https://forms.gle/wGC5MmdJqduwAiNG6" target="_blank" class="cta-button">
           <i class="fas fa-pencil-alt"></i> Request Your Free Audit
         </a>
+        
+        <div class="stats">
+          <div class="stat-box">
+            <div class="stat-number">1,200+</div>
+            <div class="stat-text">Resumes Optimized</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">24h</div>
+            <div class="stat-text">Avg. Turnaround</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">94%</div>
+            <div class="stat-text">Client Satisfaction</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="features" id="services">
+  <section class="services" id="services">
     <div class="container">
       <div class="section-title">
         <h2>Our Specialized Services</h2>
-        <p>Precision-tailored resume solutions for Edmonton’s key industries</p>
+        <p>Precision-tailored resume solutions for Edmonton's key industries</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <i class="fas fa-edit"></i>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-edit"></i>
+          </div>
           <h3>Layout & ATS Formatting</h3>
-          <p>Professional design and structure that sails through Applicant Tracking Systems every time.</p>
+          <p>Professional design and structure that sails through Applicant Tracking Systems every time. We ensure your resume is parsed correctly by all major ATS platforms.</p>
+          <a href="#pricing" class="cta-button">View Packages</a>
         </div>
-        <div class="feature-card">
-          <i class="fas fa-bullseye"></i>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
           <h3>Content & Keywords</h3>
-          <p>Action-driven language, quantifiable achievements, and exact keyword targeting for your role.</p>
+          <p>Action-driven language, quantifiable achievements, and exact keyword targeting for your specific role. We analyze job descriptions to match employer expectations.</p>
+          <a href="#pricing" class="cta-button">View Packages</a>
         </div>
-        <div class="feature-card">
-          <i class="fas fa-industry"></i>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-industry"></i>
+          </div>
           <h3>Industry Customization</h3>
-          <p>From tech to healthcare, oil & gas to government—speak the language of your next employer.</p>
+          <p>From tech to healthcare, oil & gas to government—we speak the language of your next employer. Edmonton-specific industry knowledge for maximum impact.</p>
+          <a href="#pricing" class="cta-button">View Packages</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="process">
+  <section class="process" id="process">
     <div class="container">
       <div class="section-title">
         <h2>How It Works</h2>
@@ -310,22 +956,22 @@
         <div class="step">
           <div class="step-number">1</div>
           <h4>Fill Out Form</h4>
-          <p>Click the button above and complete our quick Google Form.</p>
+          <p>Click the button above and complete our quick Google Form with your details and resume.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
           <h4>We Analyze</h4>
-          <p>Deep-dive content, format, and ATS compatibility audit.</p>
+          <p>Deep-dive content, format, and ATS compatibility audit by our HR and tech experts.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <h4>Receive Feedback</h4>
-          <p>Actionable, tailored recommendations emailed within 24 hours.</p>
+          <p>Actionable, tailored recommendations emailed within 24 hours with improvement roadmap.</p>
         </div>
         <div class="step">
           <div class="step-number">4</div>
           <h4>Choose Package</h4>
-          <p>Select and pay for the service level that fits your goals.</p>
+          <p>Select and pay for the service level that fits your career goals and budget.</p>
         </div>
       </div>
     </div>
@@ -336,7 +982,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Packages & Pricing</h2>
-        <p>Transparent, flat-rate services—no surprises.</p>
+        <p>Transparent, flat-rate services—no surprises</p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -347,10 +993,11 @@
           </div>
           <div class="pricing-body">
             <ul class="pricing-features">
-              <li><i class="fas fa-check-circle"></i> Pro layout redesign</li>
-              <li><i class="fas fa-check-circle"></i> ATS compliance review</li>
-              <li><i class="fas fa-check-circle"></i> Section restructuring</li>
-              <li><i class="fas fa-check-circle"></i> 24-hr turnaround</li>
+              <li><i class="fas fa-check-circle"></i> Professional layout redesign</li>
+              <li><i class="fas fa-check-circle"></i> Comprehensive ATS compliance review</li>
+              <li><i class="fas fa-check-circle"></i> Strategic section restructuring</li>
+              <li><i class="fas fa-check-circle"></i> Font and spacing optimization</li>
+              <li><i class="fas fa-check-circle"></i> 24-hour turnaround guarantee</li>
             </ul>
             <a href="https://forms.gle/wGC5MmdJqduwAiNG6" target="_blank" class="cta-button">Select Basic</a>
           </div>
@@ -367,7 +1014,9 @@
               <li><i class="fas fa-check-circle"></i> Everything in Basic</li>
               <li><i class="fas fa-check-circle"></i> Action-verb optimization</li>
               <li><i class="fas fa-check-circle"></i> Achievement highlighting</li>
-              <li><i class="fas fa-check-circle"></i> 48-hr turnaround</li>
+              <li><i class="fas fa-check-circle"></i> Quantifiable impact statements</li>
+              <li><i class="fas fa-check-circle"></i> Industry-specific terminology</li>
+              <li><i class="fas fa-check-circle"></i> 48-hour turnaround</li>
             </ul>
             <a href="https://forms.gle/wGC5MmdJqduwAiNG6" target="_blank" class="cta-button">Select Standard</a>
           </div>
@@ -381,12 +1030,110 @@
           <div class="pricing-body">
             <ul class="pricing-features">
               <li><i class="fas fa-check-circle"></i> Everything in Standard</li>
-              <li><i class="fas fa-check-circle"></i> Keyword strategy</li>
-              <li><i class="fas fa-check-circle"></i> Cover letter draft</li>
-              <li><i class="fas fa-check-circle"></i> LinkedIn review</li>
-              <li><i class="fas fa-check-circle"></i> 72-hr turnaround</li>
+              <li><i class="fas fa-check-circle"></i> Strategic keyword placement</li>
+              <li><i class="fas fa-check-circle"></i> Custom cover letter draft</li>
+              <li><i class="fas fa-check-circle"></i> LinkedIn profile review</li>
+              <li><i class="fas fa-check-circle"></i> Interview preparation tips</li>
+              <li><i class="fas fa-check-circle"></i> 30-day revision support</li>
+              <li><i class="fas fa-check-circle"></i> 72-hour turnaround</li>
             </ul>
             <a href="https://forms.gle/wGC5MmdJqduwAiNG6" target="_blank" class="cta-button">Select Premium</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Client Success Stories</h2>
+        <p>Real results from Edmonton job seekers</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"After struggling for months, I got 3 interviews in 2 weeks after using the Standard package. The keyword optimization made all the difference!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MK</div>
+              <div class="author-info">
+                <h4>Michael K.</h4>
+                <p>IT Project Manager</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The Premium package was worth every penny. Not only did I land a job, but I negotiated a 20% higher salary thanks to their resume strategy."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SR</div>
+              <div class="author-info">
+                <h4>Sarah R.</h4>
+                <p>Healthcare Administrator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"I was skeptical about resume services, but the free audit alone identified 5 critical issues. The Basic package fixed them all at an amazing price."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">TJ</div>
+              <div class="author-info">
+                <h4>Thomas J.</h4>
+                <p>Engineering Technician</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about our service</p>
+      </div>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            How long does the free audit take? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We typically provide audit results within 24 hours of receiving your resume. During peak periods, it may take up to 48 hours.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            What file formats do you accept? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We accept PDF, DOC, and DOCX formats. PDF is preferred as it maintains formatting best.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            Do you work with career changers? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! We specialize in helping career changers highlight transferable skills and frame their experience for new industries.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            How do I pay for services? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We accept all major credit cards through our secure payment system. Payment is only required after you approve the audit recommendations.</p>
           </div>
         </div>
       </div>
@@ -398,15 +1145,48 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact & Online Form</h3>
+          <h3>About Edmonton iResume</h3>
+          <p>With over 10 years of HR, programming, and resume expertise, we specialize in optimizing resumes for Edmonton's unique job market. Local knowledge, global standards.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Information</h3>
           <ul class="contact-info">
             <li>
               <i class="fas fa-envelope"></i>
-              <a href="mailto:iresume@mai.com">iresume@mail.com</a>
+              <a href="mailto:iresume@mail.com">iresume@mail.com</a>
             </li>
             <li>
               <i class="fas fa-phone"></i>
               <a href="tel:+17802007482">780 200 7482</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Edmonton, Alberta</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-file-alt"></i>
+              <a href="#services">Our Services</a>
+            </li>
+            <li>
+              <i class="fas fa-dollar-sign"></i>
+              <a href="#pricing">Pricing Packages</a>
+            </li>
+            <li>
+              <i class="fas fa-question-circle"></i>
+              <a href="#faq">FAQ</a>
             </li>
             <li>
               <i class="fas fa-globe"></i>
@@ -415,22 +1195,78 @@
           </ul>
         </div>
       </div>
+      
       <div class="copyright">
-        &copy; 2023 Edmonton iResume. All rights reserved. Online services only.
+        &copy; 2023 Edmonton iResume. All rights reserved. Professional resume optimization services for Edmonton job seekers.
       </div>
     </div>
   </footer>
 
   <script>
-    // Smooth-scroll for internal anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href'))
-          .scrollIntoView({ behavior: 'smooth' });
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+    
+    // FAQ accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+        const icon = question.querySelector('i');
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
       });
     });
+    
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if(this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.service-card, .step, .pricing-card, .testimonial-card');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if(elementPosition < screenPosition) {
+          element.style.opacity = "1";
+          element.style.transform = "translateY(0)";
+        }
+      });
+    }
+    
+    // Set initial state
+    document.querySelectorAll('.service-card, .step, .pricing-card, .testimonial-card').forEach(el => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    });
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', animateOnScroll);
+    // Initial check in case elements are already in view
+    window.addEventListener('load', animateOnScroll);
   </script>
-
 </body>
 </html>
